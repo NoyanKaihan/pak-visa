@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #f9f9f9;
     color: #333;
+    text-align: center;
 }
 
 /* Navbar styling */
@@ -58,6 +59,7 @@ body {
     display: block;
 }
 
+/* Initially hide the menu items and show the hamburger button only on mobile screens */
 .menu-toggle {
     font-size: 30px;
     background: none;
@@ -65,64 +67,9 @@ body {
     color: #333;
     cursor: pointer;
     position: absolute;
-    right: 10px; /* Move button to the right */
-    top: 15px;  /* Ensure it's not hidden */
+    right: 50px;
+    top: 15px;
     z-index: 1100;
-}
-
-/* Desktop view */
-@media (min-width: 768px) {
-    .menu {
-        display: flex !important;
-        flex-direction: row;
-        position: static;
-        box-shadow: none;
-        border: none;
-        background: none;
-        width: auto;
-    }
-
-    .menu li {
-        margin: 0 15px;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
-
-    /* Aligning logo to the left and ensuring it doesn't shift */
-    .navbar {
-        padding-left: 20px;
-    }
-
-    .logo {
-        padding-left: 0;
-    }
-}
-
-/* Mobile view adjustments */
-@media (max-width: 768px) {
-    .navbar {
-        padding-left: 10px;  /* Adjust padding to make space for the logo */
-    }
-
-    .logo {
-        padding-left: 5px;  /* Reduced padding to keep logo in view */
-    }
-
-    /* Adjust menu toggle button position */
-    .menu-toggle {
-        position: absolute;
-        right: 40px;  /* Place button on the far right */
-        top: 15px;
-        z-index: 1100;
-    }
-
-    /* Ensure the menu becomes a dropdown when toggled */
-    .menu {
-        right: 0; /* Align the menu with the right edge */
-        top: 60px; /* Align the menu below the navbar */
-    }
 }
 
 /* Content styling */
@@ -143,12 +90,20 @@ body {
 
 .user-photo {
     max-width: 150px;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .details p {
-    margin: 8px 0;
+    margin: 20px 0;
     line-height: 1.6;
+}
+
+.details strong {
+    font-size: 16px;
+}
+
+.details br {
+    margin-bottom: 10px;
 }
 
 .btn {
@@ -187,13 +142,34 @@ footer {
     margin-bottom: 100px;
 }
 
-@media (max-width: 768px) {
-    footer {
-        font-size: 13px;
+/* Show menu items as horizontal and hide hamburger button on larger screens */
+@media (min-width: 768px) {
+    .menu {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: none;
+        width: auto;
     }
 
-    .btn {
-        max-width: 90%;
-        font-size: 14px;
+    .menu li {
+        margin: 0 15px;
+    }
+
+    .menu-toggle {
+        display: none; /* Hide the hamburger button on larger screens */
+    }
+}
+
+/* Show hamburger button on mobile screens only */
+@media (max-width: 767px) {
+    .menu-toggle {
+        display: block; /* Show hamburger button on mobile */
+    }
+
+    .menu {
+        display: none;
     }
 }
