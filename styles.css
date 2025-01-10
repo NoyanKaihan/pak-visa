@@ -1,4 +1,3 @@
-body {
 /* General styling */
 body {
     font-family: Arial, sans-serif;
@@ -25,8 +24,7 @@ body {
 
 .logo {
     height: 50px;
-    margin: 0; /* Remove extra margin */
-    padding-left: 150px; /* Add a small padding for slight spacing */
+    margin: 0;
 }
 
 .menu {
@@ -66,6 +64,10 @@ body {
     border: none;
     color: #333;
     cursor: pointer;
+    position: absolute;
+    right: 10px; /* Move button to the right */
+    top: 15px;  /* Ensure it's not hidden */
+    z-index: 1100;
 }
 
 /* Desktop view */
@@ -87,6 +89,40 @@ body {
     .menu-toggle {
         display: none;
     }
+
+    /* Aligning logo to the left and ensuring it doesn't shift */
+    .navbar {
+        padding-left: 20px;
+    }
+
+    .logo {
+        padding-left: 0;
+    }
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding-left: 10px;  /* Adjust padding to make space for the logo */
+    }
+
+    .logo {
+        padding-left: 5px;  /* Reduced padding to keep logo in view */
+    }
+
+    /* Adjust menu toggle button position */
+    .menu-toggle {
+        position: absolute;
+        right: 40px;  /* Place button on the far right */
+        top: 15px;
+        z-index: 1100;
+    }
+
+    /* Ensure the menu becomes a dropdown when toggled */
+    .menu {
+        right: 0; /* Align the menu with the right edge */
+        top: 60px; /* Align the menu below the navbar */
+    }
 }
 
 /* Content styling */
@@ -101,7 +137,7 @@ body {
 }
 
 .visa-ref, .visa-number {
-    color: #0056b3; /* Blue color for text and number */
+    color: #0056b3;
     font-weight: bold;
 }
 
@@ -133,24 +169,11 @@ body {
 }
 
 /* Footer styling */
-/*footer {
-    background-color: rgb(58, 82, 106);
-    color: #fff;
-    text-align: center;
-    padding: 10px 20px;
-    font-size: 14px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
-}*/
 footer {
     background-color: rgb(58, 82, 106);
     color: #fff;
     text-align: center;
-    padding: 1.5px 20px; /* Reduced padding */
+    padding: 1.5px 20px;
     font-size: 14px;
     position: fixed;
     left: 0;
@@ -161,7 +184,7 @@ footer {
 }
 
 .content {
-    margin-bottom: 100px; /* Prevent content overlap with footer */
+    margin-bottom: 100px;
 }
 
 @media (max-width: 768px) {
