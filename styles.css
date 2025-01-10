@@ -26,6 +26,8 @@ body {
 
 .menu-container {
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .menu-toggle {
@@ -103,6 +105,28 @@ h2 {
     background-color: #0056b3;
 }
 
+footer {
+    background-color: rgb(58, 82, 106);  /* Applying the color */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 16px;
+    position: fixed;   /* Fixes the footer at the bottom */
+    left: 0;
+    bottom: 0;         /* Ensures it stays at the bottom */
+    width: 100%;       /* Makes sure the footer spans the full width */
+    z-index: 1000;     /* Ensures footer stays on top of other content */
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Adjust the content so it's not hidden by the footer */
+.content {
+    margin-bottom: 80px; /* Adjust the content margin to prevent it from being hidden under the fixed footer */
+}
+
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
     .navbar {
@@ -133,6 +157,8 @@ h2 {
 
     .menu-toggle {
         display: block;
+        margin-left: auto;
+        font-size: 30px;
     }
 
     .content {
@@ -157,11 +183,6 @@ h2 {
         padding: 15px;
         font-size: 18px;
     }
-}
-footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 12px;
 }
 
 /* Media Query for Tablet and Small Desktop Devices */
