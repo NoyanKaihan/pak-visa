@@ -43,7 +43,7 @@ body {
 
 .content {
     margin: 100px auto;
-    max-width: 600px;
+    max-width: 900px;
     background: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -53,7 +53,6 @@ body {
 
 .user-photo {
     max-width: 150px;
-    /*border-radius: 50%;*/
     margin: 10px 0;
 }
 
@@ -78,10 +77,22 @@ body {
     background-color: #0056b3;
 }
 
+/* Media Query for Mobile Devices */
 @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .logo {
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
     .menu {
         flex-direction: column;
         text-align: center;
+        margin-top: 10px;
     }
 
     .menu li {
@@ -89,7 +100,7 @@ body {
     }
 
     .content {
-        margin: 80px 10px;
+        margin: 120px 10px 30px;
         padding: 15px;
     }
 
@@ -99,5 +110,12 @@ body {
 
     .btn {
         width: 100%;
+    }
+}
+
+/* Media Query for Tablet and Small Desktop Devices */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .content {
+        max-width: 750px;
     }
 }
