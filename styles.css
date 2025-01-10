@@ -1,4 +1,6 @@
 body {
+/* General styling */
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -6,61 +8,91 @@ body {
     color: #333;
 }
 
+/* Navbar styling */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
     padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
     height: 50px;
-}
-
-.menu-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 30px;
-    background: none;
-    border: none;
-    color: #333;
-    cursor: pointer;
-    font-weight: bold;
+    margin: 0; /* Remove extra margin */
+    padding-left: 150px; /* Add a small padding for slight spacing */
 }
 
 .menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    display: none;
+    flex-direction: column;
+    text-align: left;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    z-index: 1000;
+}
+
+.menu.show {
     display: flex;
 }
 
 .menu li {
-    margin: 0 15px;
+    list-style: none;
+    margin: 10px 0;
 }
 
 .menu a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    font-size: 16px;
+    padding: 10px 20px;
+    display: block;
 }
 
+.menu-toggle {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Desktop view */
+@media (min-width: 768px) {
+    .menu {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: none;
+        width: auto;
+    }
+
+    .menu li {
+        margin: 0 15px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* Content styling */
 .content {
-    margin: 120px auto 30px;
-    max-width: 900px;
+    margin: 100px auto;
+    max-width: 600px;
     background: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -68,9 +100,9 @@ body {
     text-align: center;
 }
 
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.visa-ref, .visa-number {
+    color: #0056b3; /* Blue color for text and number */
+    font-weight: bold;
 }
 
 .user-photo {
@@ -81,23 +113,18 @@ h2 {
 .details p {
     margin: 8px 0;
     line-height: 1.6;
-    font-size: 16px;
-}
-
-.details p strong {
-    font-weight: bold;
 }
 
 .btn {
-    padding: 12px 25px;
+    padding: 12px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 20px auto 0;
     display: block;
-    max-width: 250px;
+    margin: 20px auto 0;
+    max-width: 200px;
     font-size: 16px;
 }
 
@@ -105,93 +132,45 @@ h2 {
     background-color: #0056b3;
 }
 
-footer {
-    background-color: rgb(58, 82, 106);  /* Applying the color */
+/* Footer styling */
+/*footer {
+    background-color: rgb(58, 82, 106);
     color: #fff;
     text-align: center;
-    padding: 20px 0;
-    font-size: 16px;
-    position: fixed;   /* Fixes the footer at the bottom */
+    padding: 10px 20px;
+    font-size: 14px;
+    position: fixed;
     left: 0;
-    bottom: 0;         /* Ensures it stays at the bottom */
-    width: 100%;       /* Makes sure the footer spans the full width */
-    z-index: 1000;     /* Ensures footer stays on top of other content */
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}*/
+footer {
+    background-color: rgb(58, 82, 106);
+    color: #fff;
+    text-align: center;
+    padding: 1.5px 20px; /* Reduced padding */
+    font-size: 14px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-footer p {
-    margin: 0;
-}
-
-/* Adjust the content so it's not hidden by the footer */
 .content {
-    margin-bottom: 80px; /* Adjust the content margin to prevent it from being hidden under the fixed footer */
+    margin-bottom: 100px; /* Prevent content overlap with footer */
 }
 
-/* Media Query for Mobile Devices */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 15px;
-    }
-
-    .logo {
-        height: 40px;
-        margin-bottom: 10px;
-    }
-
-    .menu {
-        display: none;
-        flex-direction: column;
-        text-align: center;
-        margin-top: 10px;
-        width: 100%;
-    }
-
-    .menu li {
-        margin: 10px 0;
-    }
-
-    .menu a {
-        font-size: 18px;
-    }
-
-    .menu-toggle {
-        display: block;
-        margin-left: auto;
-        font-size: 30px;
-    }
-
-    .content {
-        margin: 150px 10px 30px;
-        padding: 15px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    .user-photo {
-        max-width: 120px;
-    }
-
-    .details p {
-        font-size: 14px;
+    footer {
+        font-size: 13px;
     }
 
     .btn {
-        width: 100%;
-        padding: 15px;
-        font-size: 18px;
-    }
-}
-
-/* Media Query for Tablet and Small Desktop Devices */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .content {
-        max-width: 750px;
-    }
-
-    h2 {
-        font-size: 22px;
+        max-width: 90%;
+        font-size: 14px;
     }
 }
